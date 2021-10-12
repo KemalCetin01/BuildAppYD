@@ -1,0 +1,54 @@
+﻿@model BuildingModel
+@{
+    ViewData["Title"] = "AddBuilding";
+}
+@section Scripts{
+    <script src="~/modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<h1>Add Building</h1>
+
+<form asp-controller="Admin" asp-action="AddBuilding" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-8">
+
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group row">
+                <label asp-for="buildingName" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="buildingName" value="@Model.buildingName" class="form-control" />
+                    <span asp-validation-for="buildingName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="buildingNo" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="buildingNo" value="@Model.buildingNo" class="form-control" />
+                    <span asp-validation-for="buildingNo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="fullAddress" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="fullAddress" value="@Model.fullAddress" class="form-control" />
+                    <span asp-validation-for="fullAddress" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="squareMeter" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="squareMeter" value="@Model.squareMeter" class="form-control" />
+                    <span asp-validation-for="squareMeter" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-md-2">
+                    <button type="submit" class="btn btn-primary">Binayı Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

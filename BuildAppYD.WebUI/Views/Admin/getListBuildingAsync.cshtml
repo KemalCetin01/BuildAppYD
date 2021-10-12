@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BuildingModel>
+@{
+    ViewData["Title"] = "getListBuildingAsync";
+}
+
+<h1>getListBuildingAsync</h1>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <a class="btn btn-danger float-right" href="/AddBuilding">Yeni Bina Ekle</a>
+    </div>
+</div>
+
+<hr />
+
+@*@if (Model.Count > 0)
+{*@
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Building Name</td>
+                <td>Building No</td>
+                <td style="width:12px;">Adress</td>
+                <td style="width:12px;">SquareMeter</td>
+                <td style="width:150px;"></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.buildingName</td>
+                    <td>@item.buildingNo</td>
+                    <td>@item.fullAddress</td>
+                    <td>@item.squareMeter</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm mr-2" href="UpdateBuilding?id=@item.Id">Düzenle</a>
+
+                        <form action="DeleteBuilding" method="post" style="display:inline;">
+                            <input type="hidden" name="buildingId" value="@item.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                        </form>
+
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+@*}
+else
+{
+    <div class="alert alert-warning">
+        <h4>Bina Yok</h4>
+    </div>
+}*@

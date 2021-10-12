@@ -1,0 +1,57 @@
+﻿@model IEnumerable<RoomModel>
+@{
+    ViewData["Title"] = "getListRoom";
+}
+
+<h1>getListRoomAsync</h1>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <a class="btn btn-danger float-right" href="/AddRoom">Yeni Oda Ekle</a>
+    </div>
+</div>
+
+<hr />
+
+@*@if (Model.Count > 0)
+    {*@
+<div><strong>@TempData["MethodBilgisi"]</strong></div>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Room Name</td>
+            <td>Building Id - Name</td>
+            <td style="width:150px;"></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.roomName</td>
+                <td>@item.BuildingId  - @item.Buildings.buildingName</td>
+                <td>
+                    <a class="btn btn-primary btn-sm mr-2" href="UpdateRoom?id=@item.Id">Düzenle</a>
+
+                    <form action="DeleteRoom" method="post" style="display:inline;">
+                        <input type="hidden" name="roomId" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                    </form>
+
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+@*}
+    else
+    {
+        <div class="alert alert-warning">
+            <h4>Oda Yok</h4>
+        </div>
+    }*@
